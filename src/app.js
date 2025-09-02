@@ -13,5 +13,9 @@ app.use(
     credentials: true,
   })
 );
-app.use(cookieParser())
-export default app;
+app.use(cookieParser());
+import urlRoute from './routes/url.route.js';
+
+app.use("/api", urlRoute);
+// app.use(errorHandler);
+export {app};
