@@ -3,16 +3,13 @@ import { nanoid } from "nanoid";
 const urlData = {};
 const shortenUrl = async(res, req) =>{
     const {url} = req.body;
-    if(!url|| !url.startsWith('http')){
-        return res.status(400).json({message: "Invalid Url"})
-    }
-    const id = nanoid(4);
-    urlData[id] = url;
+    const shortCode = nanoid(6);
+    urlData[shortCode] = url;
 
 }
 const shortCode = (res, req) =>{
-    const {id} = req.params;
-    const orginalUrl = urlData[id];
+    const {shortCode} = req.params;
+    const orginalUrl = urlData[shortCode];
     if(orginalUrl){
         return res.redirect(orginalUrl);
     }else{

@@ -7,11 +7,10 @@ const serverStart = async() =>{
     try {
         await dbConnection();
         app.listen(PORT, ()=>{
-            console.log(`Server is running at http://localhost:${PORT}/`);
+            console.log(`Server is running at http://localhost:${PORT}`);
         })
     } catch (error) {
         console.log(error);
-        console.log("Database can't be connected");
         process.exit(1);
     }
 }
